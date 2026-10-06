@@ -1,0 +1,1 @@
+# 72-hue-color-palette
