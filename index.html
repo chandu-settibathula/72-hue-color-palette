@@ -6,13 +6,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Elms+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="logo.png">
 
-<title>Spectrum Studio | Mobile-Optimized Palette</title>
+<title>Spectrum Studio | Chandu Settibathula</title>
 <style>
   :root {
     --bg-color: #121212;
     --dot-color: rgba(255, 255, 255, 0.08);
-    --panel-bg: rgba(20, 20, 22, 0.88);
+    --panel-bg: rgba(20, 20, 20, 0.88);
     --border-color: rgba(255, 255, 255, 0.12);
     --text-primary: #f0f0f0;
     --text-secondary: #999999;
@@ -38,7 +39,7 @@
     user-select: none;
   }
 
-  /* Main Wrapper with Padding around the layout */
+  /* Main Wrapper Layout */
   .app-container {
     display: flex;
     flex-direction: column;
@@ -46,6 +47,45 @@
     height: 100%;
     padding: 16px;
     gap: 12px;
+  }
+
+  /* Desktop and Tablet Layout (769px and above) */
+  @media (min-width: 769px) {
+    .app-container {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      grid-template-rows: auto 1fr;
+      gap: 12px;
+    }
+
+    .header {
+      grid-column: 1 / -1;
+    }
+
+    .palette-wrapper {
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+    }
+
+    .footer {
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+      justify-content: space-between;
+      height: 100%;
+      overflow-y: auto;
+    }
+
+    .history-container {
+      flex-direction: column;
+      align-items: stretch;
+      max-width: 100%;
+    }
+
+    .history-bar {
+      flex-wrap: wrap;
+      overflow-y: auto;
+      max-height: calc(100dvh - 300px);
+    }
   }
 
   /* Header Card */
@@ -59,7 +99,7 @@
     gap: 8px;
     background: var(--panel-bg);
     backdrop-filter: blur(16px);
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--panel-bg);
     border-radius: var(--card-radius);
     z-index: 30;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
@@ -93,7 +133,7 @@
   .btn {
     background: rgba(255, 255, 255, 0.05);
     color: #cccccc;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--panel-bg);
     padding: 8px 12px;
     border-radius: var(--card-radius);
     font-size: 12px;
@@ -182,13 +222,14 @@
     scroll-behavior: smooth;
     background: var(--panel-bg);
     backdrop-filter: blur(16px);
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--panel-bg);
     border-radius: var(--card-radius);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   }
 
   .palette-wrapper::-webkit-scrollbar, .history-bar::-webkit-scrollbar {
     height: 6px;
+    width: 6px;
   }
   .palette-wrapper::-webkit-scrollbar-track, .history-bar::-webkit-scrollbar-track {
     background: transparent;
@@ -262,14 +303,14 @@
 
   /* Footer Card */
   .footer {
-    padding: 12px 16px;
+    padding: 14px 16px;
     background: var(--panel-bg);
     backdrop-filter: blur(16px);
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--panel-bg);
     border-radius: var(--card-radius);
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 12px;
     z-index: 30;
     flex-shrink: 0;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
@@ -338,6 +379,11 @@
     color: #aaaaaa;
   }
 
+  .copyright a {
+    color: #888888;
+    text-decoration: none;
+  }
+
   /* Toast Notification */
   .toast {
     position: fixed;
@@ -363,6 +409,7 @@
     opacity: 1;
   }
 
+  /* Mobile Layout Adjustment */
   @media (max-width: 768px) {
     .app-container {
       padding: 10px;
@@ -416,7 +463,8 @@
       <button class="btn btn-clear" id="btnClearHistory">Clear History</button>
     </div>
     <div class="copyright">
-      &copy; 2026 Chandu Settibathula. All rights reserved.
+      &copy; 2026 Chandu Settibathula. Designed & Developed with precision.<br>
+      <a href="https://github.com/chandu-settibathula" target="_blank">github.com/chandu-settibathula</a>
     </div>
   </div>
 
